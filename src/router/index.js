@@ -1,0 +1,54 @@
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+// import Main from '../views/Main.vue'
+
+Vue.use(VueRouter)
+
+const routes = [
+  {
+    path: '/',
+    name: 'Main',
+    //按需引入
+    component: () => import('../views/Main.vue'),
+    redirect: '/home',
+    children: [
+      // {
+      //   path: '/home',
+      //   name: 'home',
+      //   component: () => import('../views/Home')
+      // },
+      // {
+      //   path: '/user',
+      //   name: 'user',
+      //   component: () => import('../views/User')
+      // },
+      // {
+      //   path: '/mall',
+      //   name: 'mall',
+      //   component: () => import('../views/Mall')
+      // },
+      // {
+      //   path: '/page1',
+      //   name: 'page1',
+      //   component: () => import('../views/page1')
+      // },
+      // {
+      //   path: '/page2',
+      //   name: 'page2',
+      //   component: () => import('../views/page2')
+      // },
+    ]
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/Login')
+  }
+]
+
+const router = new VueRouter({
+  mode: 'history',
+  routes
+})
+
+export default router
